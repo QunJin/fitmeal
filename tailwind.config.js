@@ -1,8 +1,9 @@
 /** @type {import('@tailwindcss/postcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: [
-    "./app/**/*.{js,jsx,ts,tsx}",
-    "./components/**/*.{js,jsx,ts,tsx}",
+    "./app/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
   ],
   theme: {
     extend: {},

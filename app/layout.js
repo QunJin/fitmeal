@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import ThemeToggle from "./ThemeToggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,20 +20,39 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
-        <nav className="bg-white shadow-sm border-b border-slate-200">
+    <html lang="en" className="h-full">
+      <body
+        className={`
+          min-h-screen
+          bg-slate-50 text-slate-900
+          dark:bg-slate-950 dark:text-slate-100
+          ${geistSans.variable} ${geistMono.variable}
+        `}
+      >
+        {/* NAVBAR */}
+        <nav className="bg-white/80 dark:bg-slate-900/80 backdrop-blur shadow mb-6">
           <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-            <h1 className="text-xl font-bold text-slate-900">FitMeal</h1>
+            <h1 className="text-xl font-bold">
+              FitMeal
+            </h1>
 
-            <div className="space-x-4 text-sm">
-              <Link href="/" className="hover:underline">Search</Link>
-              <Link href="/macro" className="hover:underline">Macro Calculator</Link>
+            <div className="flex items-center gap-4">
+              <Link href="/" className="hover:underline">
+                Search
+              </Link>
+              <Link href="/macro" className="hover:underline">
+                Macro Calculator
+              </Link>
+
+              {/* Dark mode toggle */}
+              <ThemeToggle />
             </div>
           </div>
         </nav>
 
-        <main className="max-w-4xl mx-auto px-4 py-6">{children}</main>
+        <main className="max-w-4xl mx-auto px-4 pb-10">
+          {children}
+        </main>
       </body>
     </html>
   );
