@@ -3,7 +3,7 @@ import SearchClient from "./SearchClient";
 
 export default function SearchPage() {
   return (
-    <Suspense fallback={<p className="text-center py-10">Loading search…</p>}>
+    <Suspense fallback={<div className="py-10 text-center">Loading search…</div>}>
       <SearchClient />
     </Suspense>
   );
