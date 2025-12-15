@@ -6,7 +6,7 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
   const [theme, setTheme] = useState("light");
 
-  // Run only on client after hydration
+  
   useEffect(() => {
     setMounted(true);
 
@@ -27,7 +27,7 @@ export default function ThemeToggle() {
     document.documentElement.classList.toggle("dark", next === "dark");
   }
 
-  // Prevent hydration mismatch
+
   if (!mounted) return null;
 
   return (

@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-// Food icon helper
+// Food icon
 function getFoodIcon(desc) {
   const d = desc.toLowerCase();
 
